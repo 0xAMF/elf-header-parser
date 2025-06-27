@@ -3,10 +3,15 @@
 #include "../inc/elfparser.h"
 #include "../inc/ident_utils.h"
 
+const char realmagic[MAGIC_SIZE] = {0x7f, 0x45, 0x4c, 0x46};
+
 elf_ret_t elf_show_header(elf64_hdr_t *elfheader) {
-    char magic[4];
+    char magic[MAGIC_SIZE];
     memcpy(magic, elfheader->e_ident, 4);
 
+    if (memcmp(realmagic, magic, MAGIC_SIZE) != 0) {
+        return INVALID_ELF;
+    }
 
     printf("Magic: ");
     for (int i = 0; i < EI_NIDENT; i++) {

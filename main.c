@@ -14,7 +14,7 @@ int main(int argc, char **argv)
 {
     // check user input
     if (argc <= 1) {
-        printf("usage: ./myreadelf <elf_binary>\n");
+        printf("usage: ./myreadelfh <elf_binary>\n");
         return -1;
     }
 

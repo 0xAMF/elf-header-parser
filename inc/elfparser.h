@@ -12,6 +12,8 @@
 #define EI_OSABI          0x07
 #define EI_ABIVERSION     0x08
 
+#define MAGIC_SIZE        4
+
 
 typedef struct
 {
