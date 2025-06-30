@@ -1,8 +1,41 @@
-# Parsing Section Headers
-## Section Headers Offset
-   1. From the ELF headers, we take `e_shoff` field to seek to the section headers.
-   2. Create an array of section headers.
-   3. Use `e_shstrndx` as an index to acquire string table header.
-   4. Seek to the string table data using `sh_offset` of the string table header.
-   5. Read the data of the string table into a string.
-   6. Now that we have the string table and the section headers, we can iterate through the enteries using `e_shnum` to print out the data of all sections.
+# ELF Header Parser
+
+A simple ELF (Executable and Linkable Format) header parser written in C. This tool allows you to extract and display key metadata from ELF binary files, such as the ELF header, section headers, and string table.
+
+## 🧠 Features
+- Parses ELF64 headers.
+- Displays:
+  - ELF magic and file class
+  - Entry point address
+  - Section headers and types
+  - Section names via the string table
+- Portable and minimal C code.
+
+## Usage
+
+### 1. Build the parser
+
+```bash
+make
+```
+
+This will generate an executable named `shelf`.
+
+### 2. Run the parser on an ELF binary
+
+```bash
+./shelf /path/to/binary
+```
+
+Example:
+
+```bash
+./shelf /bin/ls
+```
+---
+
+###  TODO
+
+- Add support for ELF32
+- Display program headers
+- Add symbol table parsing

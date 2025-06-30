@@ -14,7 +14,7 @@ MAIN = main.c
 MAIN_OBJ = $(MAIN:.c=.o)
 
 # Executable
-TARGET = myreadelfh
+TARGET = shelf
 
 # Default rule
 all: $(TARGET)
