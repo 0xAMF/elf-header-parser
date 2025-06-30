@@ -31,18 +31,15 @@ int main(int argc, char **argv)
         perror("file error: ");
     }
 
+    // copy the data inside our struct
+    memcpy(&elfheader, buffer, sizeof(elf64_hdr_t));
+
+    elf_show_sec_header(&elfheader, fd);
+
     // close file
     if (close(fd) == -1) {
         perror("Error closing file");
         return 1;
-    }
-
-    // copy the data inside our struct
-    memcpy(&elfheader, buffer, sizeof(elf64_hdr_t));
-
-    if(elf_show_header(&elfheader) != VALID_ELF) {
-        printf("File is not ELF!\n");
-        return 2;
     }
 
     return 0;

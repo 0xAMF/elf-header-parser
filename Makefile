@@ -2,7 +2,7 @@
 CC = gcc
 
 # Compiler flags
-CFLAGS = -Wall -Wextra -I./src
+CFLAGS = -Wall -Wextra -g -I./src
 
 # Source files
 SRC_DIR = src

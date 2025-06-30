@@ -30,8 +30,24 @@ typedef struct
     uint16_t        e_phnum;
     uint16_t        e_shentsize;
     uint16_t        e_shnum;
-    uint16_t        e_shstrndx;
+    uint16_t        e_shstrndx; // this index points to the section number that contains the string table
 } elf64_hdr_t;
+
+
+typedef struct {
+    uint32_t   sh_name; // sh_name represents offset in string table
+    uint32_t   sh_type;
+    uint64_t   sh_flags;
+    uint64_t   sh_addr;
+    uint64_t   sh_offset;
+    uint64_t   sh_size;
+    uint32_t   sh_link;
+    uint32_t   sh_info;
+    uint64_t   sh_addralign;
+    uint64_t   sh_entsize;
+} elf64_shdr_t;
+
+
 
 typedef enum {
     VALID_ELF = 0,
@@ -39,6 +55,6 @@ typedef enum {
 } elf_ret_t;
 
 elf_ret_t elf_show_header(elf64_hdr_t *elfheader);
-char *get_class_string(elf64_hdr_t *elfheader);
+void elf_show_sec_header(elf64_hdr_t *elfheader, int fd);
 
 #endif
