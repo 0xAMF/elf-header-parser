@@ -2,7 +2,7 @@
 
 A simple ELF (Executable and Linkable Format) header parser written in C. This tool allows you to extract and display key metadata from ELF binary files, such as the ELF header, section headers, and string table.
 
-## 🧠 Features
+## Features
 - Parses ELF64 headers.
 - Displays:
   - ELF magic and file class
